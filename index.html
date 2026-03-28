@@ -93,24 +93,22 @@
 
   <script>
     const STOPS = [
-      { id: 'hussein',   type: 'visit', name: 'Mosquée & Maqam Al-Hussein',       location: 'El Gamaliya',          duration: 30, url: 'https://maps.app.goo.gl/zyHhzSMgLPRo46KB6', wiki: 'Al-Hussein_Mosque,_Cairo',          walk: null },
-      { id: 'nafisa',    type: 'visit', name: 'Maqam Sayyida Nafisa',              location: 'El Khalifa',            duration: 25, url: 'https://maps.app.goo.gl/dyBpKrXS27b57avw6', wiki: 'Sayyida_Nafisa_Mosque',             walk: { label: '1,8 km', km: 1.8, duration: 25 } },
-      { id: 'sakina',    type: 'visit', name: 'Maqam Sayyida Sakina',              location: 'El Khalifa',            duration: 20, url: 'https://maps.app.goo.gl/PMKmPJgMj69fg1VG6', wiki: 'Sayyida_Sakina',                    walk: { label: '0,6 km', km: 0.6, duration: 10 } },
-      { id: 'citadelle', type: 'visit', name: 'Citadelle de Saladin',              location: 'El Khalifa · payant',   duration: 50, url: 'https://maps.app.goo.gl/BJAFLQdgyZmfw6NK7', wiki: 'Cairo_Citadel',                     walk: { label: '1,2 km (montée)', km: 1.2, duration: 20 } },
-      { id: 'dhulnun',   type: 'visit', name: 'Maqam Dhul-Nun al-Misri',           location: 'Al-Abageyah',           duration: 20, url: 'https://maps.app.goo.gl/nusE958LmLq1nfvH9', wiki: 'Dhu_al-Nun_al-Misri',               walk: { label: '1,3 km (descente)', km: 1.3, duration: 20 } },
-      { id: 'ibnhajar',  type: 'visit', name: 'Maqam Ibn Hajar al-Asqalani',       location: 'Al-Abageyah',           duration: 20, url: 'https://maps.app.goo.gl/37tEpv7yYDJHSy1U6', wiki: 'Ibn_Hajar_al-Asqalani',             walk: { label: '0,4 km', km: 0.4, duration: 10 } },
-      { id: 'lunch',     type: 'break', name: 'Déjeuner — Koshary El-Tahrir',      location: 'Al-Khalifa · ~5 min à pied', duration: 60, url: 'https://maps.app.goo.gl/4r2GhHHCTHRWkEFT8', wiki: null,                           walk: null },
-      { id: 'tahawi',    type: 'visit', name: 'Maqam Imam al-Tahawi',              location: 'Al-Abageyah',           duration: 20, url: 'https://maps.app.goo.gl/VPDuiEkkYCnKfdsn7', wiki: 'Ahmad_ibn_Muhammad_al-Tahawi',      walk: { label: '0,3 km', km: 0.3, duration: 10 } },
-      { id: 'ibnataa',   type: 'visit', name: 'Sidi Ibn Ataa Allah al-Sakandari',  location: 'Al-Abageyah',           duration: 20, url: 'https://maps.app.goo.gl/1SyUMSgq7vhBGrUr5', wiki: 'Ibn_Ata_Allah_al-Iskandari',        walk: { label: '0,3 km', km: 0.3, duration: 10 } },
-      { id: 'shafii',    type: 'visit', name: "Mosquée & Maqam Imam al-Shafi'i",  location: 'Al-Qarafa al-Kubra',    duration: 35, url: 'https://maps.app.goo.gl/QiZzDrKL7BcrDZ7j6', wiki: 'Al-Imam_al-Shafi%27i_Mosque',       walk: { label: '1,0 km', km: 1.0, duration: 15 } },
+      { id: 'hussein',   type: 'visit', name: 'Mosquée & Maqam Al-Hussein',       location: 'El Gamaliya',               duration: 30, url: 'https://maps.app.goo.gl/zyHhzSMgLPRo46KB6', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/%D8%B3%D8%A7%D8%AD%D8%A9_%D9%88%D9%85%D8%B3%D8%AC%D8%AF_%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86_%D8%A8%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9.jpg/640px-%D8%B3%D8%A7%D8%AD%D8%A9_%D9%88%D9%85%D8%B3%D8%AC%D8%AF_%D8%A7%D9%84%D8%AD%D8%B3%D9%8A%D9%86_%D8%A8%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9.jpg', walk: null },
+      { id: 'nafisa',    type: 'visit', name: 'Maqam Sayyida Nafisa',              location: 'El Khalifa',                duration: 25, url: 'https://maps.app.goo.gl/dyBpKrXS27b57avw6', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Sayidah_Nafisah_Mosque_in_Egypt.jpg/640px-Sayidah_Nafisah_Mosque_in_Egypt.jpg', walk: { label: '1,8 km', km: 1.8, duration: 25 } },
+      { id: 'sakina',    type: 'visit', name: 'Maqam Sayyida Sakina',              location: 'El Khalifa',                duration: 20, url: 'https://maps.app.goo.gl/PMKmPJgMj69fg1VG6', photo: null, walk: { label: '0,6 km', km: 0.6, duration: 10 } },
+      { id: 'citadelle', type: 'visit', name: 'Citadelle de Saladin',              location: 'El Khalifa · payant',       duration: 50, url: 'https://maps.app.goo.gl/BJAFLQdgyZmfw6NK7', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Flickr_-_HuTect_ShOts_-_Citadel_of_Salah_El.Din_and_Masjid_Muhammad_Ali_%D9%82%D9%84%D8%B9%D8%A9_%D8%B5%D9%84%D8%A7%D8%AD_%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A_%D9%88%D9%85%D8%B3%D8%AC%D8%AF_%D9%85%D8%AD%D9%85%D8%AF_%D8%B9%D9%84%D9%8A_-_Cairo_-_Egypt_-_17_04_2010_%284%29.jpg/640px-Flickr_-_HuTect_ShOts_-_Citadel_of_Salah_El.Din_and_Masjid_Muhammad_Ali_%D9%82%D9%84%D8%B9%D8%A9_%D8%B5%D9%84%D8%A7%D8%AD_%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A_%D9%88%D9%85%D8%B3%D8%AC%D8%AF_%D9%85%D8%AD%D9%85%D8%AF_%D8%B9%D9%84%D9%8A_-_Cairo_-_Egypt_-_17_04_2010_%284%29.jpg', walk: { label: '1,2 km (montée)', km: 1.2, duration: 20 } },
+      { id: 'dhulnun',   type: 'visit', name: 'Maqam Dhul-Nun al-Misri',           location: 'Al-Abageyah',               duration: 20, url: 'https://maps.app.goo.gl/nusE958LmLq1nfvH9', photo: null, walk: { label: '1,3 km (descente)', km: 1.3, duration: 20 } },
+      { id: 'ibnhajar',  type: 'visit', name: 'Maqam Ibn Hajar al-Asqalani',       location: 'Al-Abageyah',               duration: 20, url: 'https://maps.app.goo.gl/37tEpv7yYDJHSy1U6', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Tomb_of_al-hafidh_Ibn_Hajar_Al-Asqalani_%281%29._Cairo%2C_Egypt_%C2%A9_Fouad_Gehad_Marei_%282009%29.jpg/640px-Tomb_of_al-hafidh_Ibn_Hajar_Al-Asqalani_%281%29._Cairo%2C_Egypt_%C2%A9_Fouad_Gehad_Marei_%282009%29.jpg', walk: { label: '0,4 km', km: 0.4, duration: 10 } },
+      { id: 'lunch',     type: 'break', name: 'Déjeuner — Koshary El-Tahrir',      location: 'Al-Khalifa · ~5 min à pied', duration: 60, url: 'https://maps.app.goo.gl/4r2GhHHCTHRWkEFT8', photo: null, walk: null },
+      { id: 'tahawi',    type: 'visit', name: 'Maqam Imam al-Tahawi',              location: 'Al-Abageyah',               duration: 20, url: 'https://maps.app.goo.gl/VPDuiEkkYCnKfdsn7', photo: null, walk: { label: '0,3 km', km: 0.3, duration: 10 } },
+      { id: 'ibnataa',   type: 'visit', name: 'Sidi Ibn Ataa Allah al-Sakandari',  location: 'Al-Abageyah',               duration: 20, url: 'https://maps.app.goo.gl/1SyUMSgq7vhBGrUr5', photo: null, walk: { label: '0,3 km', km: 0.3, duration: 10 } },
+      { id: 'shafii',    type: 'visit', name: "Mosquée & Maqam Imam al-Shafi'i",  location: 'Al-Qarafa al-Kubra',        duration: 35, url: 'https://maps.app.goo.gl/QiZzDrKL7BcrDZ7j6', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Schafi%27i-Mausoleum_in_Kairo.jpg/640px-Schafi%27i-Mausoleum_in_Kairo.jpg', walk: { label: '1,0 km', km: 1.0, duration: 15 } },
     ];
 
     const state = {
       startTime: '08:30',
       enabled: Object.fromEntries(STOPS.map(s => [s.id, true])),
     };
-
-    const photoCache = {};
 
     function toMinutes(str) {
       const [h, m] = str.split(':').map(Number);
@@ -123,41 +121,10 @@
       return `${String(h).padStart(2, '0')}h${String(m).padStart(2, '0')}`;
     }
 
-    async function togglePhoto(id) {
+    function togglePhoto(id) {
       const panel = document.getElementById(`photo-${id}`);
       if (!panel) return;
-
-      const isOpen = panel.classList.contains('open');
-      if (isOpen) { panel.classList.remove('open'); return; }
-
-      panel.classList.add('open');
-
-      if (photoCache[id]) return;
-
-      const stop = STOPS.find(s => s.id === id);
-      if (!stop?.wiki) return;
-
-      const img = panel.querySelector('img');
-      const caption = panel.querySelector('.photo-caption');
-
-      try {
-        const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${stop.wiki}`);
-        const data = await res.json();
-
-        if (data.thumbnail?.source) {
-          img.src = data.thumbnail.source;
-          img.classList.remove('hidden');
-          photoCache[id] = data.thumbnail.source;
-        } else {
-          panel.innerHTML = `<p class="text-xs text-slate-600 py-2">Aucune image disponible.</p>`;
-        }
-
-        if (caption && data.extract) {
-          caption.textContent = data.extract.split('.')[0] + '.';
-        }
-      } catch {
-        panel.innerHTML = `<p class="text-xs text-slate-600 py-2">Impossible de charger la photo.</p>`;
-      }
+      panel.classList.toggle('open');
     }
 
     function render() {
@@ -255,15 +222,14 @@
           </div>`;
       }
 
-      const photoBtn = seg.wiki ? `
+      const photoBtn = seg.photo ? `
         <button onclick="togglePhoto('${seg.id}')" class="mt-2 inline-flex items-center gap-1.5 text-xs text-slate-500 active:text-slate-300 transition-colors py-1">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
           Voir une photo
         </button>
         <div id="photo-${seg.id}" class="photo-collapse mt-2">
           <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
-            <img class="w-full max-h-48 object-cover hidden" alt="${seg.name}" />
-            <p class="photo-caption text-xs text-slate-500 px-3 py-2 leading-relaxed"></p>
+            <img src="${seg.photo}" class="w-full max-h-52 object-cover" alt="${seg.name}" loading="lazy" />
           </div>
         </div>` : '';
 
