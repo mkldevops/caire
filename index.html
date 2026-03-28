@@ -12,6 +12,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta name="referrer" content="no-referrer">
   <style>
     input[type="time"]::-webkit-calendar-picker-indicator { filter: invert(0.5); }
     * { -webkit-tap-highlight-color: transparent; }
@@ -229,7 +230,7 @@
         </button>
         <div id="photo-${seg.id}" class="photo-collapse mt-2">
           <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
-            <img src="${seg.photo}" class="w-full max-h-52 object-cover" alt="${seg.name}" loading="lazy" />
+            <img src="${seg.photo}" class="w-full max-h-52 object-cover" alt="${seg.name}" loading="lazy" referrerpolicy="no-referrer" />
           </div>
         </div>` : '';
 
