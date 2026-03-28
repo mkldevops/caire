@@ -7,13 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-        }
-      }
+      theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } }
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,348 +15,48 @@
 </head>
 <body class="bg-white text-slate-800 font-sans antialiased">
 
-  <!-- HEADER -->
   <header class="border-b border-slate-100 px-6 py-10 max-w-2xl mx-auto">
     <p class="text-xs font-medium tracking-widest text-slate-400 uppercase mb-3">Le Caire · Égypte</p>
     <h1 class="text-3xl font-semibold text-slate-900 mb-2">Tour des Maqams</h1>
-    <p class="text-slate-500 text-sm">Une journée · 9 lieux · ~8,5 km à pied</p>
+    <p class="text-slate-500 text-sm mb-6">Une journée · itinéraire pédestre</p>
+
+    <div class="flex items-center gap-3">
+      <label class="text-xs font-medium text-slate-500 uppercase tracking-widest">Départ</label>
+      <input
+        id="start-time"
+        type="time"
+        value="08:30"
+        class="text-sm font-medium text-slate-900 border border-slate-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-slate-300"
+      />
+    </div>
   </header>
 
   <main class="max-w-2xl mx-auto px-6 py-10 space-y-14">
 
     <!-- STATS -->
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-4 gap-3">
       <div class="bg-slate-50 rounded-xl p-4">
-        <p class="text-2xl font-semibold text-slate-900">9</p>
+        <p id="stat-stops" class="text-2xl font-semibold text-slate-900">9</p>
         <p class="text-xs text-slate-400 mt-0.5">Maqams</p>
       </div>
       <div class="bg-slate-50 rounded-xl p-4">
-        <p class="text-2xl font-semibold text-slate-900">8,5</p>
+        <p id="stat-km" class="text-2xl font-semibold text-slate-900">6,9</p>
         <p class="text-xs text-slate-400 mt-0.5">km</p>
       </div>
       <div class="bg-slate-50 rounded-xl p-4">
-        <p class="text-2xl font-semibold text-slate-900">6h50</p>
+        <p id="stat-total" class="text-2xl font-semibold text-slate-900">6h50</p>
         <p class="text-xs text-slate-400 mt-0.5">Total</p>
       </div>
       <div class="bg-slate-50 rounded-xl p-4">
-        <p class="text-2xl font-semibold text-slate-900">08h30</p>
-        <p class="text-xs text-slate-400 mt-0.5">Départ</p>
+        <p id="stat-end" class="text-2xl font-semibold text-slate-900">15h20</p>
+        <p class="text-xs text-slate-400 mt-0.5">Arrivée</p>
       </div>
     </div>
 
     <!-- TIMELINE -->
     <section>
       <h2 class="text-xs font-medium tracking-widest text-slate-400 uppercase mb-6">Itinéraire</h2>
-
-      <div class="space-y-1">
-
-        <!-- Item component: visit -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">08h30</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-800 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <p class="text-sm font-medium text-slate-900">Mosquée &amp; Maqam Al-Hussein</p>
-                <p class="text-xs text-slate-400 mt-0.5">El Gamaliya · 30 min</p>
-              </div>
-              <a href="https://maps.app.goo.gl/zyHhzSMgLPRo46KB6" target="_blank" class="text-xs text-slate-400 hover:text-slate-700 shrink-0 transition-colors">Maps ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Walk -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-xs text-slate-300 tabular-nums">09h00</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-1.5 h-1.5 rounded-full bg-slate-200 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[24px]"></div>
-          </div>
-          <div class="pb-3 flex-1">
-            <p class="text-xs text-slate-400">Marche — 1,8 km · 25 min</p>
-          </div>
-        </div>
-
-        <!-- Item -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">09h25</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-800 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <p class="text-sm font-medium text-slate-900">Maqam Sayyida Nafisa</p>
-                <p class="text-xs text-slate-400 mt-0.5">El Khalifa · 25 min</p>
-              </div>
-              <a href="https://maps.app.goo.gl/dyBpKrXS27b57avw6" target="_blank" class="text-xs text-slate-400 hover:text-slate-700 shrink-0 transition-colors">Maps ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Walk -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-xs text-slate-300 tabular-nums">09h50</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-1.5 h-1.5 rounded-full bg-slate-200 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[24px]"></div>
-          </div>
-          <div class="pb-3 flex-1">
-            <p class="text-xs text-slate-400">Marche — 0,6 km · 10 min</p>
-          </div>
-        </div>
-
-        <!-- Item -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">10h00</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-800 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <p class="text-sm font-medium text-slate-900">Maqam Sayyida Sakina</p>
-                <p class="text-xs text-slate-400 mt-0.5">El Khalifa · 20 min</p>
-              </div>
-              <a href="https://maps.app.goo.gl/PMKmPJgMj69fg1VG6" target="_blank" class="text-xs text-slate-400 hover:text-slate-700 shrink-0 transition-colors">Maps ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Walk -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-xs text-slate-300 tabular-nums">10h20</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-1.5 h-1.5 rounded-full bg-slate-200 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[24px]"></div>
-          </div>
-          <div class="pb-3 flex-1">
-            <p class="text-xs text-slate-400">Marche (montée) — 1,2 km · 20 min</p>
-          </div>
-        </div>
-
-        <!-- Citadelle — highlighted -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">10h40</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-800 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <p class="text-sm font-medium text-slate-900">Citadelle de Saladin</p>
-                <p class="text-xs text-slate-400 mt-0.5">El Khalifa · 50 min · <span class="text-slate-500">entrée payante</span></p>
-              </div>
-              <a href="https://maps.app.goo.gl/BJAFLQdgyZmfw6NK7" target="_blank" class="text-xs text-slate-400 hover:text-slate-700 shrink-0 transition-colors">Maps ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Walk -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-xs text-slate-300 tabular-nums">11h30</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-1.5 h-1.5 rounded-full bg-slate-200 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[24px]"></div>
-          </div>
-          <div class="pb-3 flex-1">
-            <p class="text-xs text-slate-400">Descente vers la Cité des Morts — 1,3 km · 20 min</p>
-          </div>
-        </div>
-
-        <!-- Item -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">11h50</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-800 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <p class="text-sm font-medium text-slate-900">Maqam Dhul-Nun al-Misri</p>
-                <p class="text-xs text-slate-400 mt-0.5">Al-Abageyah · 20 min</p>
-              </div>
-              <a href="https://maps.app.goo.gl/nusE958LmLq1nfvH9" target="_blank" class="text-xs text-slate-400 hover:text-slate-700 shrink-0 transition-colors">Maps ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Walk -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-xs text-slate-300 tabular-nums">12h10</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-1.5 h-1.5 rounded-full bg-slate-200 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[24px]"></div>
-          </div>
-          <div class="pb-3 flex-1">
-            <p class="text-xs text-slate-400">Marche — 10 min</p>
-          </div>
-        </div>
-
-        <!-- Item -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">12h20</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-800 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <p class="text-sm font-medium text-slate-900">Maqam Ibn Hajar al-Asqalani</p>
-                <p class="text-xs text-slate-400 mt-0.5">Al-Abageyah · 20 min</p>
-              </div>
-              <a href="https://maps.app.goo.gl/37tEpv7yYDJHSy1U6" target="_blank" class="text-xs text-slate-400 hover:text-slate-700 shrink-0 transition-colors">Maps ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- LUNCH -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">12h40</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-300 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <p class="text-sm text-slate-500">Déjeuner</p>
-            <p class="text-xs text-slate-400 mt-0.5">1h · café ou restaurant local</p>
-          </div>
-        </div>
-
-        <!-- Item -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">13h40</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-800 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <p class="text-sm font-medium text-slate-900">Maqam Imam al-Tahawi</p>
-                <p class="text-xs text-slate-400 mt-0.5">Al-Abageyah · 20 min</p>
-              </div>
-              <a href="https://maps.app.goo.gl/VPDuiEkkYCnKfdsn7" target="_blank" class="text-xs text-slate-400 hover:text-slate-700 shrink-0 transition-colors">Maps ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Walk -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-xs text-slate-300 tabular-nums">14h00</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-1.5 h-1.5 rounded-full bg-slate-200 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[24px]"></div>
-          </div>
-          <div class="pb-3 flex-1">
-            <p class="text-xs text-slate-400">Marche — 10 min</p>
-          </div>
-        </div>
-
-        <!-- Item -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">14h10</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-800 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <p class="text-sm font-medium text-slate-900">Sidi Ibn Ataa Allah al-Sakandari</p>
-                <p class="text-xs text-slate-400 mt-0.5">Al-Abageyah · 20 min</p>
-              </div>
-              <a href="https://maps.app.goo.gl/1SyUMSgq7vhBGrUr5" target="_blank" class="text-xs text-slate-400 hover:text-slate-700 shrink-0 transition-colors">Maps ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Walk -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-xs text-slate-300 tabular-nums">14h30</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-1.5 h-1.5 rounded-full bg-slate-200 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[24px]"></div>
-          </div>
-          <div class="pb-3 flex-1">
-            <p class="text-xs text-slate-400">Marche — 1 km · 15 min</p>
-          </div>
-        </div>
-
-        <!-- Last item -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">14h45</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-800 mt-1.5"></div>
-            <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <p class="text-sm font-medium text-slate-900">Mosquée &amp; Maqam Imam al-Shafi'i</p>
-                <p class="text-xs text-slate-400 mt-0.5">Al-Qarafa al-Kubra · 35 min</p>
-              </div>
-              <a href="https://maps.app.goo.gl/QiZzDrKL7BcrDZ7j6" target="_blank" class="text-xs text-slate-400 hover:text-slate-700 shrink-0 transition-colors">Maps ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- End -->
-        <div class="flex gap-5 items-start">
-          <div class="w-14 shrink-0 text-right">
-            <span class="text-sm text-slate-400 tabular-nums">15h20</span>
-          </div>
-          <div class="flex flex-col items-center shrink-0">
-            <div class="w-2 h-2 rounded-full bg-slate-300 mt-1.5"></div>
-          </div>
-          <div class="pb-5 flex-1">
-            <p class="text-sm text-slate-500">Fin — retour en taxi ou Uber</p>
-          </div>
-        </div>
-
-      </div>
+      <div id="timeline" class="space-y-1"></div>
     </section>
 
     <!-- TIPS -->
@@ -379,7 +73,7 @@
         </div>
         <div class="py-3 flex gap-3">
           <span class="text-slate-400 text-sm w-5 shrink-0">—</span>
-          <p class="text-sm text-slate-600"><span class="text-slate-800 font-medium">Emporter de l'eau</span> — peu de commerces dans la zone de la Cité des Morts.</p>
+          <p class="text-sm text-slate-600"><span class="text-slate-800 font-medium">Emporter de l'eau</span> — peu de commerces dans la Cité des Morts.</p>
         </div>
         <div class="py-3 flex gap-3">
           <span class="text-slate-400 text-sm w-5 shrink-0">—</span>
@@ -396,10 +90,11 @@
       </div>
     </section>
 
-    <!-- MAP LINK -->
-    <a href="https://www.google.com/maps/dir/Al+Emam+El+Hussein+Mosque,+Cairo/Al-Sayyida+Nafisa,+Cairo/Al+Sayeda+Skina,+Cairo/Citadelle+de+Saladin,+Cairo/Mausoleum+of+Dhul-Nun+al-Misri,+Cairo/Ibnou+Hajar+al-Asqalani,+Cairo/Imam+al-Tahawi,+Cairo/Sidi+Ibn+Ataa+Allah+Alsakandari,+Cairo/El-Imam+El-Shafei,+Cairo"
+    <a
+      href="https://www.google.com/maps/dir/Al+Emam+El+Hussein+Mosque,+Cairo/Al-Sayyida+Nafisa,+Cairo/Al+Sayeda+Skina,+Cairo/Citadelle+de+Saladin,+Cairo/Mausoleum+of+Dhul-Nun+al-Misri,+Cairo/Ibnou+Hajar+al-Asqalani,+Cairo/Imam+al-Tahawi,+Cairo/Sidi+Ibn+Ataa+Allah+Alsakandari,+Cairo/El-Imam+El-Shafei,+Cairo"
       target="_blank"
-      class="flex items-center justify-between w-full bg-slate-900 text-white rounded-xl px-6 py-4 hover:bg-slate-800 transition-colors group">
+      class="flex items-center justify-between w-full bg-slate-900 text-white rounded-xl px-6 py-4 hover:bg-slate-800 transition-colors group"
+    >
       <div>
         <p class="text-sm font-medium">Voir l'itinéraire complet</p>
         <p class="text-xs text-slate-400 mt-0.5">Google Maps · 9 étapes</p>
@@ -412,6 +107,247 @@
   <footer class="max-w-2xl mx-auto px-6 py-8 border-t border-slate-100">
     <p class="text-xs text-slate-400">Planifié par Abdou Sy · Le Caire</p>
   </footer>
+
+  <script>
+    const STOPS = [
+      {
+        id: 'hussein', type: 'visit',
+        name: 'Mosquée & Maqam Al-Hussein',
+        location: 'El Gamaliya',
+        duration: 30,
+        url: 'https://maps.app.goo.gl/zyHhzSMgLPRo46KB6',
+        walk: null,
+      },
+      {
+        id: 'nafisa', type: 'visit',
+        name: 'Maqam Sayyida Nafisa',
+        location: 'El Khalifa',
+        duration: 25,
+        url: 'https://maps.app.goo.gl/dyBpKrXS27b57avw6',
+        walk: { label: '1,8 km', km: 1.8, duration: 25 },
+      },
+      {
+        id: 'sakina', type: 'visit',
+        name: 'Maqam Sayyida Sakina',
+        location: 'El Khalifa',
+        duration: 20,
+        url: 'https://maps.app.goo.gl/PMKmPJgMj69fg1VG6',
+        walk: { label: '0,6 km', km: 0.6, duration: 10 },
+      },
+      {
+        id: 'citadelle', type: 'visit',
+        name: 'Citadelle de Saladin',
+        location: 'El Khalifa · entrée payante',
+        duration: 50,
+        url: 'https://maps.app.goo.gl/BJAFLQdgyZmfw6NK7',
+        walk: { label: '1,2 km (montée)', km: 1.2, duration: 20 },
+      },
+      {
+        id: 'dhulnun', type: 'visit',
+        name: 'Maqam Dhul-Nun al-Misri',
+        location: 'Al-Abageyah',
+        duration: 20,
+        url: 'https://maps.app.goo.gl/nusE958LmLq1nfvH9',
+        walk: { label: '1,3 km (descente)', km: 1.3, duration: 20 },
+      },
+      {
+        id: 'ibnhajar', type: 'visit',
+        name: 'Maqam Ibn Hajar al-Asqalani',
+        location: 'Al-Abageyah',
+        duration: 20,
+        url: 'https://maps.app.goo.gl/37tEpv7yYDJHSy1U6',
+        walk: { label: '0,4 km', km: 0.4, duration: 10 },
+      },
+      {
+        id: 'lunch', type: 'break',
+        name: 'Déjeuner',
+        location: 'Café ou restaurant local',
+        duration: 60,
+        url: null,
+        walk: null,
+      },
+      {
+        id: 'tahawi', type: 'visit',
+        name: 'Maqam Imam al-Tahawi',
+        location: 'Al-Abageyah',
+        duration: 20,
+        url: 'https://maps.app.goo.gl/VPDuiEkkYCnKfdsn7',
+        walk: { label: '0,3 km', km: 0.3, duration: 10 },
+      },
+      {
+        id: 'ibnataa', type: 'visit',
+        name: 'Sidi Ibn Ataa Allah al-Sakandari',
+        location: 'Al-Abageyah',
+        duration: 20,
+        url: 'https://maps.app.goo.gl/1SyUMSgq7vhBGrUr5',
+        walk: { label: '0,3 km', km: 0.3, duration: 10 },
+      },
+      {
+        id: 'shafii', type: 'visit',
+        name: "Mosquée & Maqam Imam al-Shafi'i",
+        location: 'Al-Qarafa al-Kubra',
+        duration: 35,
+        url: 'https://maps.app.goo.gl/QiZzDrKL7BcrDZ7j6',
+        walk: { label: '1,0 km', km: 1.0, duration: 15 },
+      },
+    ];
+
+    const state = {
+      startTime: '08:30',
+      enabled: Object.fromEntries(STOPS.map(s => [s.id, true])),
+    };
+
+    function toMinutes(str) {
+      const [h, m] = str.split(':').map(Number);
+      return h * 60 + m;
+    }
+
+    function toTime(mins) {
+      const h = Math.floor(mins / 60) % 24;
+      const m = mins % 60;
+      return `${String(h).padStart(2, '0')}h${String(m).padStart(2, '0')}`;
+    }
+
+    function render() {
+      let current = toMinutes(state.startTime);
+      let totalVisit = 0, totalWalk = 0, totalKm = 0, stopCount = 0;
+      let isFirst = true;
+      const segments = [];
+
+      for (const stop of STOPS) {
+        if (!state.enabled[stop.id]) continue;
+
+        if (!isFirst && stop.walk) {
+          segments.push({ kind: 'walk', time: toTime(current), ...stop.walk });
+          current += stop.walk.duration;
+          totalWalk += stop.walk.duration;
+          totalKm += stop.walk.km;
+        }
+
+        segments.push({ kind: 'stop', time: toTime(current), ...stop, on: true });
+        current += stop.duration;
+        if (stop.type === 'visit') { stopCount++; totalVisit += stop.duration; }
+        if (stop.type === 'break') totalVisit += stop.duration;
+        isFirst = false;
+      }
+
+      const endTime = toTime(current);
+      const totalMin = totalVisit + totalWalk;
+
+      document.getElementById('stat-stops').textContent = stopCount;
+      document.getElementById('stat-km').textContent = totalKm.toFixed(1).replace('.', ',');
+      document.getElementById('stat-total').textContent = toTime(totalMin);
+      document.getElementById('stat-end').textContent = endTime;
+
+      const tl = document.getElementById('timeline');
+      tl.innerHTML = segments.map((seg, i) => renderSegment(seg, i === segments.length - 1)).join('');
+
+      tl.querySelectorAll('input[type=checkbox]').forEach(el => {
+        el.addEventListener('change', e => {
+          state.enabled[e.target.dataset.id] = e.target.checked;
+          render();
+        });
+      });
+
+      // Show disabled stops greyed out at bottom
+      const disabled = STOPS.filter(s => !state.enabled[s.id] && s.type !== 'break');
+      const ghost = document.getElementById('disabled-list');
+      if (ghost) {
+        ghost.innerHTML = disabled.length === 0 ? '' : `
+          <p class="text-xs text-slate-400 uppercase tracking-widest font-medium mb-3">Étapes désactivées</p>
+          <div class="space-y-1">
+            ${disabled.map(s => `
+              <label class="flex items-center gap-3 py-2 cursor-pointer group">
+                <input type="checkbox" data-id="${s.id}" class="w-3.5 h-3.5 accent-slate-800 cursor-pointer">
+                <span class="text-sm text-slate-400 group-hover:text-slate-600 transition-colors">${s.name}</span>
+              </label>
+            `).join('')}
+          </div>
+        `;
+        ghost.querySelectorAll('input').forEach(el => {
+          el.addEventListener('change', e => {
+            state.enabled[e.target.dataset.id] = e.target.checked;
+            render();
+          });
+        });
+      }
+    }
+
+    function renderSegment(seg, isLast) {
+      const line = isLast ? '' : '<div class="w-px flex-1 bg-slate-100 mt-1 min-h-[32px]"></div>';
+
+      if (seg.kind === 'walk') {
+        return `
+          <div class="flex gap-5 items-start">
+            <div class="w-14 shrink-0 text-right pt-1">
+              <span class="text-xs text-slate-300 tabular-nums">${seg.time}</span>
+            </div>
+            <div class="flex flex-col items-center shrink-0">
+              <div class="w-1.5 h-1.5 rounded-full bg-slate-200 mt-2"></div>
+              <div class="w-px flex-1 bg-slate-100 mt-1 min-h-[20px]"></div>
+            </div>
+            <div class="pb-2 flex-1 pt-0.5">
+              <p class="text-xs text-slate-400">Marche — ${seg.label} · ${seg.duration} min</p>
+            </div>
+          </div>`;
+      }
+
+      if (seg.type === 'break') {
+        return `
+          <div class="flex gap-5 items-start">
+            <div class="w-14 shrink-0 text-right pt-1">
+              <span class="text-sm text-slate-400 tabular-nums">${seg.time}</span>
+            </div>
+            <div class="flex flex-col items-center shrink-0">
+              <div class="w-2 h-2 rounded-full bg-slate-300 mt-1.5"></div>
+              ${line}
+            </div>
+            <div class="pb-5 flex-1">
+              <label class="flex items-start gap-2 cursor-pointer">
+                <input type="checkbox" data-id="${seg.id}" checked class="w-3.5 h-3.5 accent-slate-800 cursor-pointer mt-0.5">
+                <div>
+                  <p class="text-sm text-slate-500">${seg.name}</p>
+                  <p class="text-xs text-slate-400 mt-0.5">${seg.duration} min · ${seg.location}</p>
+                </div>
+              </label>
+            </div>
+          </div>`;
+      }
+
+      return `
+        <div class="flex gap-5 items-start">
+          <div class="w-14 shrink-0 text-right pt-1">
+            <span class="text-sm text-slate-400 tabular-nums">${seg.time}</span>
+          </div>
+          <div class="flex flex-col items-center shrink-0">
+            <div class="w-2 h-2 rounded-full bg-slate-800 mt-1.5"></div>
+            ${line}
+          </div>
+          <div class="pb-5 flex-1">
+            <div class="flex items-start justify-between gap-2">
+              <label class="flex items-start gap-2 cursor-pointer flex-1">
+                <input type="checkbox" data-id="${seg.id}" checked class="w-3.5 h-3.5 accent-slate-800 cursor-pointer mt-0.5">
+                <div>
+                  <p class="text-sm font-medium text-slate-900">${seg.name}</p>
+                  <p class="text-xs text-slate-400 mt-0.5">${seg.location} · ${seg.duration} min</p>
+                </div>
+              </label>
+              ${seg.url ? `<a href="${seg.url}" target="_blank" class="text-xs text-slate-400 hover:text-slate-700 shrink-0 transition-colors pt-0.5">Maps ↗</a>` : ''}
+            </div>
+          </div>
+        </div>`;
+    }
+
+    document.getElementById('start-time').addEventListener('input', e => {
+      state.startTime = e.target.value;
+      render();
+    });
+
+    render();
+  </script>
+
+  <!-- Ghost list for disabled stops -->
+  <div id="disabled-list" class="max-w-2xl mx-auto px-6 pb-10"></div>
 
 </body>
 </html>
